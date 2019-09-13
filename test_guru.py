@@ -2,7 +2,6 @@
 
 from selenium import webdriver
 import unittest
-import os
 
 
 
@@ -13,7 +12,7 @@ class testMainPage(unittest.TestCase):
         self.driver = webdriver.Chrome()
 
 
-    def test_chekingForm(self):
+    def test_fillup(self):
         driver = self.driver
         driver.get("http://demo.guru99.com/test/login.html")
         driver.find_element_by_id("email").send_keys("adam@wp.pl")
@@ -21,13 +20,34 @@ class testMainPage(unittest.TestCase):
         driver.find_element_by_id("SubmitLogin").click()
 
 
-    def test_checkingTitle(self):
+    def test_checkTitle(self):
         driver = self.driver
         driver.implicitly_wait(3)  # seconds
-        page=driver.title
+        page = driver.title
         self.assertEqual('',page)
         driver.implicitly_wait(3)  # seconds
         print(driver.title)
+
+    def test_toggled_buttons(self):
+        driver=self.driver
+        driver.get("http://demo.guru99.com/test/radio.html")
+        options = driver.find_elements_by_name('webform')
+        for clickk in options:
+            if clickk.get_attribute("value") == "Option 2":
+                clickk.click()
+                print("klikniety")
+            else: print("nie kliniety")
+
+            if clickk.get_attribute("value") == "checkbox2":
+                clickk.click()
+                print("klikniety")
+            else: print("nie kliniety")
+
+
+
+
+
+
 
     def tearDown(self):
 
