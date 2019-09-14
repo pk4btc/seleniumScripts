@@ -29,6 +29,22 @@ class testMainPage(unittest.TestCase):
         driver.implicitly_wait(3)  # seconds
         print(driver.title)
 
+
+
+    def test_if_logo_goback(self):
+        driver = self.driver
+        driver.get("https://www.nopcommerce.com/shoppingcart.aspx")
+        logo = driver.find_element_by_css_selector('div.header-logo a img')
+        src_base=logo.tag_name
+        logo.click()
+
+        print(f'znalezione za pomoca {src_base}')
+        if driver.title == 'nopCommerce - ASP.NET Open-source Ecommerce Shopping Cart Solution':
+            print('powrot do home ')
+
+        else:print('fail')
+
+
     def tearDown(self):
 
         self.driver.close()
