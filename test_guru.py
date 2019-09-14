@@ -1,6 +1,8 @@
 # C:\Users\live4\Desktop\My projects\selScripts
 
 from selenium import webdriver
+from selenium.webdriver.support.ui import Select
+
 import unittest
 
 
@@ -42,6 +44,12 @@ class testMainPage(unittest.TestCase):
                 clickk.click()
                 print("klikniety")
             else: print("nie kliniety")
+
+    def test_select_gender_semanticuicommodules(self):
+        driver = self.driver
+        driver.get("https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select")
+        select= Select(driver.find_element_by_tag_name('select'))
+        select.select_by_index('2')
 
 
 
