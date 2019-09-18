@@ -7,6 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
+
 import unittest
 from selenium.webdriver import ActionChains
 
@@ -73,6 +74,26 @@ class testMainPage(unittest.TestCase):
         action_chains = ActionChains(driver)
         action_chains.drag_and_drop(first,put).perform()
         driver.implicitly_wait(1)  # seconds
+
+    def test_acttionChains_decathlon(self):
+        driver = self.driver
+
+        driver.get("https://www.emag.pl")
+        time.sleep(2)
+
+        # akcesoria = driver.find_element(By.XPATH,'//a[@href="/kultura-rozrywka/d?ref=hdr_menu_department_12"]')
+
+
+        akcesoria = driver.find_element(By.LINK_TEXT,'Kultura i Rozrywka')
+        actions = ActionChains(driver)
+        actions.move_to_element(akcesoria).click().perform()
+
+
+        time.sleep(2)
+
+
+
+
 
 
 
