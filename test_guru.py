@@ -38,7 +38,7 @@ class testMainPage(unittest.TestCase):
             if clickk.get_attribute("value") == "Option 2":
                 clickk.click()
                 print("klikniety")
-            else: print("nie kliniety")
+            else: print("nie klinietyy")
 
             if clickk.get_attribute("value") == "checkbox2":
                 clickk.click()
