@@ -81,7 +81,7 @@ class testMainPage(unittest.TestCase):
         driver.get("https://www.emag.pl")
         time.sleep(2)
 
-        # akcesoria = driver.find_element(By.XPATH,'//a[@href="/kultura-rozrywka/d?ref=hdr_menu_department_12"]')
+        # akcesoria = driver.find_element(By.XPATH,'//a[@href="//laptopy-tablety-i-telefony//d?ref=hdr_menu_department_1"]')
 
 
         akcesoria = driver.find_element(By.LINK_TEXT,'Kultura i Rozrywka')

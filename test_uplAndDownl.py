@@ -6,6 +6,7 @@ import time
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.alert import Alert
 
 
 import unittest
@@ -57,9 +58,19 @@ class testMainPage(unittest.TestCase):
         input_upl = driver.find_element_by_class_name('file-upload-input')
         input_upl.send_keys(os.getcwd(), r"\Untitled.png")
 
+    def test_alert(self):
+        driver=self.driver
+        alert_popup = Alert(driver)
+        driver.get('https://itstillworks.com/put-popup-message-website-8526989.html')
+        time.sleep(2)
+        alert_popup.dismiss()
+        time.sleep(1)
 
-
-
+    def test_table(self):
+        driver = self.driver
+        driver.get('http://demo.guru99.com/test/web-table-element.php')
+        company_desired_name = driver.find_element_by_xpath('/html/body/div/div[3]/div[1]/table/tbody/tr[2]/td[1]/a')
+        company_desired_name.click()
 
 
 
